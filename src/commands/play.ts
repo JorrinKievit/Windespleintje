@@ -55,7 +55,7 @@ export const command: DiscordCommand = {
 
           connection.on("stateChange", (oldState, newState) =>
             console.log(
-              `CONNECTION: oldstate: ${oldState}, newstate: ${newState}`
+              `CONNECTION: oldstate: ${oldState.status}, newstate: ${newState.status}`
             )
           );
           connection.on("debug", (message) => {
@@ -67,7 +67,7 @@ export const command: DiscordCommand = {
 
           audioplayer.on("stateChange", (oldState, newState) => {
             console.log(
-              `AUDIOPLAYER: oldstate: ${oldState}, newstate: ${newState}`
+              `AUDIOPLAYER: oldstate: ${oldState.status}, newstate: ${newState.status}`
             );
           });
           audioplayer.on("subscribe", () => {
