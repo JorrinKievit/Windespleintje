@@ -21,7 +21,7 @@ export const AddCommandsToClient = async (client: DiscordClient) => {
   }
 
   if (process.env.NODE_ENV === "development") {
-    const guild = client.guilds.cache.get("722552077678805083");
+    const guild = client.guilds.cache.get("694491955341819914");
     await guild?.commands.set(slashCommands);
   }
   if (process.env.NODE_ENV === "production") {
