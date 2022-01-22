@@ -43,16 +43,16 @@ export const command: DiscordCommand = {
             entersState(connection, VoiceConnectionStatus.Ready, 5_000);
 
           const audioplayer = createAudioPlayer();
+
+          console.log("audioplayer", audioplayer);
           connection.subscribe(audioplayer);
 
           const audioFile = createAudioResource(voiceLine.voiceFile.asset.url);
+          console.log("audiofile", audioFile);
 
           audioplayer.play(audioFile);
           entersState(audioplayer, AudioPlayerStatus.Playing, 5_000);
 
-          audioplayer.on(AudioPlayerStatus.Idle, () => {
-            connection.destroy();
-          });
           interaction.reply({ content: "Playing the file!", ephemeral: true });
         } else {
           interaction.reply("Please join a voice channel");
