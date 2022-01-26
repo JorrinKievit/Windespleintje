@@ -12,14 +12,13 @@ export const command: DiscordCommand = {
     const embed = new MessageEmbed()
       .setColor("#00ff00")
       .setTitle("Voice Lines")
-      .setFields(
-        voiceLines.map((voiceLine) => {
-          console.log(voiceLine);
-          return {
-            name: voiceLine.commandName,
-            value: voiceLine.voiceFile.asset.url,
-          };
-        })
+      .setDescription(
+        voiceLines
+          .map(
+            (voiceLine) =>
+              `[${voiceLine.commandName}](${voiceLine.voiceFile.asset.url})`
+          )
+          .join("\n")
       );
     interaction.reply({ embeds: [embed] });
   },
